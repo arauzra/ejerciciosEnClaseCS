@@ -6,8 +6,16 @@ double promedio = 0;
 
 for (int i = 0; i < edades.Length; i++)
 {
-    Console.WriteLine($"dime la edad {i + 1}: ");
-    edades[i] = int.Parse(Console.ReadLine());
+    try
+    {
+        Console.WriteLine($"dime la edad {i + 1}: ");
+        edades[i] = int.Parse(Console.ReadLine());
+    }
+    catch (FormatException)
+    {
+        Console.WriteLine("Entrada no válida. Por favor, ingrese un número entero.");
+        i--; 
+    }  
 }
 
 foreach(int edad in edades)
